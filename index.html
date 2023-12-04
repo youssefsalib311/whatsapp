@@ -54,23 +54,36 @@
     </form>
 
     <script>
-      function sendwhatsapp(){
-       var phonenumber = "+201115782802";
+      function sendwhatsapp() {
+  var phonenumber = "+201115782802";
+  var name = document.querySelector(".name").value;
+  var email = document.querySelector(".email").value;
+  var country = document.querySelector(".country").value;
+  var message = document.querySelector(".message").value;
 
-       var name = document.querySelector(".name").value;
-       var email = document.querySelector(".email").value;
-       var country = document.querySelector(".country").value;
-       var message = document.querySelector(".message").value;
+  var url =
+    "https://wa.me/" +
+    phonenumber +
+    "?text=" +
+    "*Name :* " +
+    name +
+    "%0a" +
+    "*Email :* " +
+    email +
+    "%0a" +
+    "*Country:* " +
+    country +
+    "%0a" +
+    "*Message :* " +
+    message +
+    "%0a%0a" +
+    "This is an example of send HTML form data to WhatsApp";
 
-       var url = "https://wa.me/" + phonenumber + "?text="
-       +"*Name :* "+name+"%0a"
-       +"*Email :* "+email+"%0a"
-       +"*Country:* "+country+"%0a"
-       +"*Message :* "+message +"%0a%0a"
-       +"This is an example of send HTML form data to WhatsApp";
+  setTimeout(function () {
+    window.open(url, "_blank").focus();
+  }, 100); // Delay of 100 milliseconds
+}
 
-       window.open(url, '_blank').focus();
-     }
     </script>
   </body>
 </html>
